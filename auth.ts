@@ -1,9 +1,14 @@
 import NextAuth from "next-auth";
-import GitHub from "next-auth/providers/github";
+import GitHubProvider from "next-auth/providers/github";
 import prisma from "@/prisma/client";
 
 export const { handlers, auth, signIn, signOut } = NextAuth({
-  providers: [GitHub],
+  providers: [
+    GitHubProvider({
+      clientId: process.env.AUTH_GITHUB_ID!,
+      clientSecret: process.env.AUTH_GITHUB_SECRET!,
+    }),
+  ],
   callbacks: {
     async signIn({ user }) {
       console.log(user);

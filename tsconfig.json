@@ -22,7 +22,8 @@
     "paths": {
       "@/*": ["./*"],
       "@/prisma/*": ["./prisma/*"],
-      "@/actions/*": ["./app/actions/*"]
+      "@/actions/*": ["./app/actions/*"],
+      "@/auth/*": ["./auth.ts"]
     }
   },
   "include": ["next-env.d.ts", ".next/types/**/*.ts", "**/*.ts", "**/*.tsx"],

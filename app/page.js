@@ -1,11 +1,13 @@
 "use client";
 import { useState, useEffect } from "react";
-import Tasks from "../components/Tasks";
-import AddTask from "../components/AddTask";
-import { getTasksFromDB } from "../actions/getTasks.js"; // ✅ Fetch via API
+import Tasks from "./components/Tasks";
+import AddTask from "./components/AddTask";
+import Logbook from "./components/Logbook";
+
+import { getTasksFromDB } from "./actions/getTasks.js"; // ✅ Fetch via API
 import { useSession } from "next-auth/react"; // ✅ Fetch session in client components
 
-function App() {
+export default function Home() {
   const [tasks, setTasks] = useState([]);
   const { data: session, status } = useSession(); // ✅ Client-side session check
 
@@ -42,5 +44,3 @@ function App() {
     </>
   );
 }
-
-export default App;
